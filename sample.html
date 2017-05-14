@@ -21,14 +21,12 @@
 			for (var i = 0; i < 14; i++) {
 				homes[i] = [];
 			};
-
 			Crafty.c("Stone", {
 				home_number: 0,
 				change_home: function(new_home) {
 					this.home_number = new_home;
 				}
 			});
-
 			Crafty.c("Houses", {
 				what_house: function(x, y) {
 					for (var i=0; i < HOME_HOLLOW_COORDINATES.length; i++) {
@@ -41,7 +39,6 @@
 					return -1;
 				}
 			});
-
 			Crafty.c("HideShow", {
 			    hide : function() {
 			        this.attr({
@@ -57,7 +54,6 @@
 			        });
 			    }
 			});
-
 			Crafty.c("Hand", {
 				activated: false,
 				remaining_moves: 0,
@@ -69,9 +65,7 @@
 						this.remaining_moves--;
 					} else this.activated = false;
 				},
-
 			});
-
 			var assets_obj = {
 				"sprites": {
 					"stones.png" : {
@@ -107,7 +101,6 @@
 					}
 				}
 			}
-
 			Crafty.load(assets_obj, function() {
 				Crafty.e("2D, Canvas, whole, Houses, Mouse").attr({x: 0, y: 0})
 				.bind("Click", function(e) {
@@ -175,7 +168,6 @@
 						}
 					}
 				}
-
 				var hand = Crafty.e('2D, Canvas, first_gesture, SpriteAnimation, Hand, Mouse')
 					.reel("putting", 1000, [
 					[0, 0], [1, 0], [2, 0], [3, 0],
