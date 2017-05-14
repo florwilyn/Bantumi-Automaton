@@ -182,12 +182,7 @@
 					[4, 0], [5, 0], [6, 0], [7, 0]
 					])
 					.attr({x:100, y:100})
-					.animate("putting", -1)
-					// .bind("Click", function() {
-					// 	this.activated = true;
-					// 	this.remaining_moves = 4;
-					// 	this.activate(0)
-					// });
+					.animate("putting", -1);
 
 				hand.bind("EnterFrame", function() {
 					if(this.reelPosition() > 6 && this.remaining_moves != 0) {
