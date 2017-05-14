@@ -11,10 +11,26 @@
 		<script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
 		<script>
 			Crafty.init(1200,363, document.getElementById('game'));
-			var HOME_HOLLOW_COORDINATES = [{x: 188, y: 190},{x: 328, y: 190},{x: 468, y: 190},{x: 608, y: 190},{x: 748, y: 190},{x: 888, y: 190},{x: 1022, y: 119},
-											{x: 888, y: 50}, {x: 748, y: 50}, {x: 608, y: 50}, {x: 468, y: 50}, {x: 328, y: 50}, {x: 188, y: 50}, {x: 55, y: 119}];
+			var HOME_HOLLOW_COORDINATES = [
+			{x: 188, y: 190},	// slot 0
+			{x: 328, y: 190},	// slot 1
+			{x: 468, y: 190},	// slot 2
+			{x: 608, y: 190},	// slot 3
+			{x: 748, y: 190},	// slot 4
+			{x: 888, y: 190},	// slot 5
+			{x: 1022, y: 119},	// slot 6
+			{x: 888, y: 50},	// slot 7
+			{x: 748, y: 50},	// slot 8
+			{x: 608, y: 50},	// slot 9
+			{x: 468, y: 50},	// slot 10
+			{x: 328, y: 50},	// slot 11
+			{x: 188, y: 50},	// slot 12
+			{x: 55, y: 119}];	// slot 13
+
+			//Stone math info
 			var STONE_DIAMETER = 40;
 			var STONE_RADIUS = STONE_DIAMETER/2;
+			
 			var stone_holder = new Array(24);
 			var homes = new Array(14);
 			var CURRENT_HOME = 0;
