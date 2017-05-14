@@ -18,6 +18,7 @@
 			var stone_holder = new Array(24);
 			var homes = new Array(14);
 			var CURRENT_HOME = 0;
+			var STONES_TO_DISTRIB;
 			for (var i = 0; i < 14; i++) {
 				homes[i] = [];
 			};
@@ -108,6 +109,7 @@
 						clicked_house = this.what_house(e.clientX, e.clientY);
 						if(i != 6) {
 							if(clicked_house != -1)
+								STONES_TO_DISTRIB = homes[clicked_house];
 								for (var i = homes[clicked_house].length - 1; i >= 0; i--) {
 								 	homes[clicked_house][i].hide();
 								 	CURRENT_HOME = clicked_house;
@@ -115,7 +117,7 @@
 								 	hand.activated = true;
 									hand.remaining_moves = homes[clicked_house].length+1;
 									hand.activate(clicked_house);
-								 };
+								};
 						}
 					}
 				});
@@ -180,7 +182,23 @@
 					if(this.reelPosition() > 6 && this.remaining_moves != 0) {
 						this.reelPosition(0);
 						this.pauseAnimation();
-						this.activate(++CURRENT_HOME%14);
+						++CURRENT_HOME
+						CURRENT_HOME %= 14;
+						console.log(CURRENT_HOME);
+						var stone = STONES_TO_DISTRIB.pop();
+						var x, y;
+						while (true) {
+							x = Math.round((Math.random() * 85));
+							y = Math.round((Math.random() * 85));
+							dist = Math.sqrt(Math.pow(42.5-x, 2) + Math.pow(42.5-y, 2))
+							if (dist <= 40)
+								break;
+						}
+						stone.x = x + HOME_HOLLOW_COORDINATES[CURRENT_HOME].x;
+						stone.y = y + HOME_HOLLOW_COORDINATES[CURRENT_HOME].y;
+						stone.show();
+						homes[CURRENT_HOME].push(stone);
+						this.activate(CURRENT_HOME);
 					}
 					if(this.remaining_moves == 0)
 						this.activated = false;
